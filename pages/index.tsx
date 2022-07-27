@@ -48,7 +48,7 @@ const Dapp: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Deposit BDI Tokens | PieDAO</title>
+        <title>WITHDRAW DEFI++ TOKEN | PieDAO</title>
         <meta
           name="description"
           content="Migrate your BasketDAO's BDI token to  PieDAO's DeFi token."
@@ -64,7 +64,7 @@ const Dapp: NextPage = () => {
             </div>
             <div className="flex flex-col gap-y-6 items-start">
               <h2 className="text-3xl font-bold text-primary-dark">
-                DEPOSIT BDI TOKEN
+                WITHDRAW DEFI++ TOKEN
               </h2>
               <Content phase={!isConnected ? 0 : state.migratorOpenState} />
               <ConnectWallet />

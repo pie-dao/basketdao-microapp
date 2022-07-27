@@ -45,19 +45,8 @@ const Content: React.FC<{ phase: number }> = ({ phase }) => {
         {phase === 2 && (
           <>
             Welcome back. The mixing of BDI into DeFi is complete! Props to our
-            bakers who made this possible. You can now withdraw your DeFi tokens{" "}
-            <span className="font-bold">OR</span> keep them locked for 12
-            months. Keeping DeFi locked will entitle you to receive a part of
-            the BDI-DeFi KPI Options reward. Full details{" "}
-            <a
-              href="https://hemingwayapp.com/f30e72bf13754c3e844d562804ad1545"
-              rel="noreferrer noopener"
-              target="_blank"
-              className="underline"
-            >
-              here
-            </a>
-            .
+            bakers who made this possible. You can now withdraw your DeFi
+            tokens.
           </>
         )}
       </p>
