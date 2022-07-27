@@ -4,7 +4,6 @@ import { useMigratorContract } from "hooks/useContract";
 import { useAppDispatch, useStoreState } from "hooks/useStore";
 import { thunkWithdraw } from "store/thunks";
 import Button from "./button";
-import { BigNumber } from "ethers";
 
 const WithdrawButton: React.FC = () => {
   const [state] = useStoreState();
