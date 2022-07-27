@@ -1,5 +1,6 @@
 import { BigNumber, ethers } from "ethers";
 import { useStoreState } from "hooks/useStore";
+import { useMemo } from "react";
 import { MigratorOpenState } from "store/slice";
 import { useConnect } from "wagmi";
 
@@ -47,6 +48,19 @@ export default Balance;
 
 const BalanceState: React.FC = () => {
   const [state] = useStoreState();
+
+  const withdrawLabel = useMemo(() => {
+    const userDeposit = BigNumber.from(state.userDeposits);
+    const currentRate = BigNumber.from(state.rate);
+    const commonDenonimator = BigNumber.from(10).pow(state.decimals);
+    const currentWithdrawAmount = userDeposit
+      .mul(currentRate)
+      .div(commonDenonimator);
+    return Number(
+      ethers.utils.formatUnits(currentWithdrawAmount, state.decimals)
+    ).toFixed(4);
+  }, [state]);
+
   return (
     <>
       {state.migratorOpenState === MigratorOpenState.Open && (
@@ -86,15 +100,7 @@ const BalanceState: React.FC = () => {
           <p>
             Your can withdraw:{" "}
             <span className="text-primary-dark font-bold">
-              {formatDisplayNumber(
-                ethers.utils.formatUnits(
-                  BigNumber.from(state.userDeposits).mul(
-                    BigNumber.from(state.rate)
-                  ),
-                  state.decimals
-                )
-              )}{" "}
-              DEFI++
+              {withdrawLabel} DEFI++
             </span>
           </p>
         </>
